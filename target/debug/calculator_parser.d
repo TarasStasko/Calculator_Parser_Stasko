@@ -1,1 +1,0 @@
-C:\Users\stask\calculator_parser\target\debug\calculator_parser.exe: C:\Users\stask\calculator_parser\src\grammar.pest C:\Users\stask\calculator_parser\src\lib.rs C:\Users\stask\calculator_parser\src\main.rs
