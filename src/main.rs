@@ -1,5 +1,5 @@
 use anyhow::{Ok, anyhow};
-use calculator_parser::{CalculatorParser, Rule};
+use stasko_calculator_parser::{CalculatorParser, Rule};
 use pest::Parser;
 
 fn main() -> anyhow::Result<()> {
