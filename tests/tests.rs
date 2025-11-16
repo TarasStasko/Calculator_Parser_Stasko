@@ -1,5 +1,5 @@
-use anyhow::Result;
 use stasko_calculator_parser::{CalculatorError, build_ast};
+use anyhow::Result;
 
 #[test]
 fn test_int() -> Result<()> {
