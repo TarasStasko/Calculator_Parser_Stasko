@@ -100,7 +100,6 @@ pub fn build_left_assoc(
     mut pairs: pest::iterators::Pairs<Rule>,
 ) -> Result<ExprAst, CalculatorError> {
     let mut ast = build_ast_from_pair(pairs.next().unwrap())?;
-
     while let (Some(op_pair), Some(rhs_pair)) = (pairs.next(), pairs.next()) {
         let op = match op_pair.as_rule() {
             Rule::add => Op::Add,
@@ -126,7 +125,6 @@ pub fn build_ast_from_pair(pair: pest::iterators::Pair<Rule>) -> Result<ExprAst,
         Rule::power_term => {
             let mut pairs = pair.into_inner().collect::<Vec<_>>();
             let mut ast = build_ast_from_pair(pairs.pop().unwrap())?;
-
             while let (Some(op_pair), Some(lhs_pair)) = (pairs.pop(), pairs.pop()) {
                 assert_eq!(op_pair.as_rule(), Rule::power);
                 let op = Op::Power;
