@@ -1,4 +1,4 @@
-use stasko_calculator_parser::{CalculatorError, build_ast_from_str};
+use stasko_calculator_parser::{CalculatorError, build_ast};
 use std::env;
 use std::fs;
 use std::io::{self, Write};
@@ -13,7 +13,7 @@ fn main() {
             if let Some(filename) = args.get(2) {
                 run_from_file(filename);
             } else {
-                eprintln!("Помилка: Прапор '--file' потребує імені файлу.");
+                eprintln!("Прапор '--file' потребує імені файлу.");
                 show_help();
             }
         }
@@ -24,7 +24,7 @@ fn main() {
             show_credits();
         }
         Some(unknown) => {
-            eprintln!("Помилка: Невідомий аргумент '{}'", unknown);
+            eprintln!("Невідомий аргумент '{}'", unknown);
             show_help();
         }
     }
@@ -65,7 +65,7 @@ fn run() {
         if input.is_empty() {
             continue;
         }
-        if input == "exit" {
+        if input == "exit" || input == "e" {
             break;
         }
         match parse_and_eval(input) {
@@ -77,7 +77,7 @@ fn run() {
 
 /// Функція, що виконує побудову AST та обчислення
 fn parse_and_eval(input: &str) -> Result<i64, CalculatorError> {
-    let ast = build_ast_from_str(input)?;
+    let ast = build_ast(input)?;
     let result = ast.eval()?;
     Ok(result)
 }

@@ -59,4 +59,5 @@ term = { factor ~ ((multiply | divide) ~ factor)* }<br>
 expression = { SOI ~ expr ~ EOI }<br>
 
 ## Крейт
-https://crates.io/crates/stasko_calculator_parser
+https://crates.io/crates/stasko_calculator_parser<br>
+https://docs.rs/stasko_calculator_parser
