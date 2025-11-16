@@ -35,15 +35,15 @@ WHITESPACE = _{ " " | "\t" | "\n" }
 int = @{ ASCII_DIGIT+ }
 
 /// Оператор додавання<br>
-add = { "+" }
+add = { "+" }<br>
 /// Оператор віднімання<br>
-subtract = { "-" }
+subtract = { "-" }<br>
 /// Оператор множення<br>
-multiply = { "*" }
+multiply = { "*" }<br>
 /// Оператор ділення<br>
-divide = { "/" }
+divide = { "/" }<br>
 /// Оператор піднесення до степеня<br>
-power = { "^" }
+power = { "^" }<br>
 
 /// `primary` - це числа або вирази в дужках.<br>
 primary = { int | "(" ~ expr ~ ")" }<br>
