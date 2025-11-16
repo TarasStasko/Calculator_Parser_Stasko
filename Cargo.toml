@@ -1,6 +1,6 @@
 [package]
 name = "stasko_calculator_parser"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2024"
 license = "MIT"
 description = "Парсер для обробки складних математичних виразів"
@@ -9,3 +9,4 @@ description = "Парсер для обробки складних матема�
 anyhow = "1.0.100"
 pest = "2.8.3"
 pest_derive = "2.8.3"
+thiserror = "1.0.61"
