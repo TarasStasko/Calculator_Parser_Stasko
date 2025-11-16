@@ -1,4 +1,4 @@
-//! Calculator Parser
+//! # Calculator Parser
 //! 
 //! ## Граматика Парсера
 //!
@@ -96,7 +96,7 @@ pub fn build_ast_from_str(input: &str) -> Result<ExprAst, CalculatorError> {
 }
 
 /// Допоміжна функція для згортання ліво-асоціативних правил
-fn build_left_associative_ast(
+pub fn build_left_associative_ast(
     mut pairs: pest::iterators::Pairs<Rule>,
 ) -> Result<ExprAst, CalculatorError> {
     let mut ast = build_ast_from_pair(pairs.next().unwrap())?;
@@ -120,7 +120,7 @@ fn build_left_associative_ast(
 }
 
 /// Рекурсивна функція для побудови AST з pest::Pair
-fn build_ast_from_pair(pair: pest::iterators::Pair<Rule>) -> Result<ExprAst, CalculatorError> {
+pub fn build_ast_from_pair(pair: pest::iterators::Pair<Rule>) -> Result<ExprAst, CalculatorError> {
     match pair.as_rule() {
         Rule::expr | Rule::term => build_left_associative_ast(pair.into_inner()),
         Rule::power_term => {
