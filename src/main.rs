@@ -13,7 +13,7 @@ fn main() {
             if let Some(filename) = args.get(2) {
                 run_from_file(filename);
             } else {
-                eprintln!("Прапор '--file' потребує імені файлу.");
+                eprintln!("Помилка: Прапор '--file' потребує імені файлу.");
                 show_help();
             }
         }
@@ -24,7 +24,7 @@ fn main() {
             show_credits();
         }
         Some(unknown) => {
-            eprintln!("Невідомий аргумент '{}'", unknown);
+            eprintln!("Помилка: Невідомий аргумент '{}'", unknown);
             show_help();
         }
     }
