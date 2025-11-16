@@ -1,4 +1,4 @@
-//!  Calculator Parser
+//! Calculator Parser
 //! 
 //! ## Граматика Парсера
 //!
