@@ -57,3 +57,6 @@ expr = { term ~ ((add | subtract) ~ term)* }<br>
 term = { factor ~ ((multiply | divide) ~ factor)* }<br>
 /// `expression` - кореневе правило, `expr` має покрити весь вхід<br>
 expression = { SOI ~ expr ~ EOI }<br>
+
+## Крейт
+https://crates.io/crates/stasko_calculator_parser
