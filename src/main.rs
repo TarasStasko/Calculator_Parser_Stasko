@@ -70,7 +70,7 @@ fn run() {
         }
         match parse_and_eval(input) {
             Ok(result) => println!("Результат: {}", result),
-            Err(e) => eprintln!("Помилка: {}", e),
+            Err(e) => eprintln!("{}", e),
         }
     }
 }
