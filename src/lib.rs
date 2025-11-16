@@ -86,7 +86,7 @@ pub enum ExprAst {
 }
 
 /// Головна функція, що перетворює вхідний рядок на AST
-pub fn build_ast_from_str(input: &str) -> Result<ExprAst, CalculatorError> {
+pub fn build_ast(input: &str) -> Result<ExprAst, CalculatorError> {
     let pair = CalculatorParser::parse(Rule::expression, input)
         .map_err(|e| CalculatorError::ParseError(Box::new(e)))?
         .next()
@@ -96,7 +96,7 @@ pub fn build_ast_from_str(input: &str) -> Result<ExprAst, CalculatorError> {
 }
 
 /// Допоміжна функція для згортання ліво-асоціативних правил
-pub fn build_left_associative_ast(
+pub fn build_left_assoc(
     mut pairs: pest::iterators::Pairs<Rule>,
 ) -> Result<ExprAst, CalculatorError> {
     let mut ast = build_ast_from_pair(pairs.next().unwrap())?;
@@ -122,7 +122,7 @@ pub fn build_left_associative_ast(
 /// Рекурсивна функція для побудови AST з pest::Pair
 pub fn build_ast_from_pair(pair: pest::iterators::Pair<Rule>) -> Result<ExprAst, CalculatorError> {
     match pair.as_rule() {
-        Rule::expr | Rule::term => build_left_associative_ast(pair.into_inner()),
+        Rule::expr | Rule::term => build_left_assoc(pair.into_inner()),
         Rule::power_term => {
             let mut pairs = pair.into_inner().collect::<Vec<_>>();
             let mut ast = build_ast_from_pair(pairs.pop().unwrap())?;
