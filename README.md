@@ -46,14 +46,14 @@ divide = { "/" }
 power = { "^" }
 
 /// `primary` - це числа або вирази в дужках.<br>
-primary = { int | "(" ~ expr ~ ")" }
+primary = { int | "(" ~ expr ~ ")" }<br>
 /// `factor` - обробляє унарні оператори(унарний мінус)<br>
-factor = { (subtract)? ~ power_term }
+factor = { (subtract)? ~ power_term }<br>
 /// `power_term` - обробляє піднесення до степеня (право-асоціативне, тобто `2 ^ 3 ^ 2` -> `2 ^ (3 ^ 2)`)<br>
-power_term = { primary ~ (power ~ factor)* }
+power_term = { primary ~ (power ~ factor)* }<br>
 /// `expr` - обробляє додавання та віднімання (ліво-асоціативне, тобто `10 - 5 + 2` -> `(10 - 5) + 2`)<br>
-expr = { term ~ ((add | subtract) ~ term)* }
+expr = { term ~ ((add | subtract) ~ term)* }<br>
 /// `term` - обробляє множення та ділення (ліво-асоціативне)<br>
-term = { factor ~ ((multiply | divide) ~ factor)* }
+term = { factor ~ ((multiply | divide) ~ factor)* }<br>
 /// `expression` - кореневе правило, `expr` має покрити весь вхід<br>
-expression = { SOI ~ expr ~ EOI }
+expression = { SOI ~ expr ~ EOI }<br>
